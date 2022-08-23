@@ -10,7 +10,7 @@ node('built-in') {
     
     //ContinuousDeployment
     stage('ContinuousDeployment') {
-       deploy adapters: [tomcat9(credentialsId: '631acbc5-c6ac-4221-9531-e9221e017bcc', path: '', url: 'http://172.31.8.57:8080')], contextPath: 'mytestaap', war: '**/*.war'
+       sh 'scp /var/lib/jenkins/workspace/ScriptedPipeline1/webapp/target/webapp.war ubuntu@172.31.8.57:/var/lib/tomcat9/webaaps/testaap.war'
     }
     
     //ContinuousTesting
